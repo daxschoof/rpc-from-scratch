@@ -20,7 +20,7 @@ int pack (int input) {
 }
 
 // get IPv4 or IPv6 sockaddr
-void* get_in_addr(struct sockaddr *sa) {
+void *get_in_addr(struct sockaddr *sa) {
     if (sa->sa_family == AF_INET) {
         return &(((struct sockaddr_in*)sa)->sin_addr);
     } else {
@@ -60,7 +60,8 @@ int get_socket() {
     }
 
     if (p == NULL) {
-        perror("client, failed to connect\n");
+    fprintf(stderr, "client: failed to connect\n");
+    exit(2);   
     }
 
     return sockfd;
@@ -86,7 +87,7 @@ bool is_prime_rpc(int num) {
     }
 
     bool result = buf[0];
-    printf("%d\n",result);
+
     close(sockfd);
     return result;
 }
