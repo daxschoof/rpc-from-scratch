@@ -86,7 +86,7 @@ bool is_prime_rpc(int num) {
     }
 
     bool result = buf[0];
-
+    printf("%d\n",result);
     close(sockfd);
     return result;
 }
